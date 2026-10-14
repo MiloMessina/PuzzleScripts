@@ -21,8 +21,8 @@ blue
 Crate
 orange
 
-Player2
-red
+Arrow
+yellow
 
 =======
 LEGEND
@@ -34,7 +34,7 @@ P = Player
 * = Crate
 @ = Crate and Target
 O = Target
-K = Player2
+K = Arrow
 
 =======
 SOUNDS
@@ -45,14 +45,18 @@ COLLISIONLAYERS
 ================
 
 Background
-Target
-Player, Wall, Crate, Player2
+Target, Arrow
+Player, Wall, Crate
 
 ======
 RULES
 ======
 
 [ > Player | Crate ] -> [ > Player | > Crate ]
+[ stationary Arrow ] -> [ left Arrow ]
+late [Player Arrow] -> restart
+late [crate Arrow] -> [Crate]
+late [Wall Arrow] -> [Wall]
 
 ==============
 WINCONDITIONS
