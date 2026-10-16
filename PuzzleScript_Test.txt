@@ -21,15 +21,244 @@ blue
 Crate
 orange
 
-ArrowLeft
-yellow
+LaserLeft
+RED
+.....
+.....
+00000
+.....
+.....
 
-ArrowSpawnLeft
+LaserRight
+RED
+.....
+.....
+00000
+.....
+.....
+
+LaserUp
+RED
+..0..
+..0..
+..0..
+..0..
+..0..
+
+LaserDown
+RED
+..0..
+..0..
+..0..
+..0..
+..0..
+
+
+(Prueba robo)
+
+BeamLR
+red
+.....
+.....
+00000
+.....
+.....
+
+BeamRL
+red
+.....
+.....
+00000
+.....
+.....
+
+BeamDU
+red
+..0..
+..0..
+..0..
+..0..
+..0..
+
+BeamUD
+red
+..0..
+..0..
+..0..
+..0..
+..0..
+
+
+BeamLD
+red
+.....
+.....
+000..
+..0..
+..0..
+
+BeamDL
+red
+.....
+.....
+000..
+..0..
+..0..
+
+BeamLU
+red
+..0..
+..0..
+000..
+.....
+.....
+
+BeamUL
+red
+..0..
+..0..
+000..
+.....
+.....
+
+BeamRU
+red
+..0..
+..0..
+..000
+.....
+.....
+
+BeamUR
+red
+..0..
+..0..
+..000
+.....
+.....
+
+BeamRD
+red
+.....
+.....
+..000
+..0..
+..0..
+
+BeamDR
+red
+.....
+.....
+..000
+..0..
+..0..
+
+LaserR
+gray red
+000..
+0000.
+00111
+0000.
+000..
+
+LaserD
+gray red
+00000
+00000
+00100
+.010.
+..1..
+
+LaserL
+gray red
+..000
+.0000
+11100
+.0000
+..000
+
+LaserU
+gray red
+..1..
+.010.
+00100
+00000
+00000
+
+LaserSpawnLeft
 Red
+
+LaserSpawnRight
+Red
+
+LaserSpawnUp
+Red
+
+LaserSpawnDown
+Red
+
+InvisibleArrow
+BLACK    
+.....
+.....
+.....
+.....
+.....
+
+MirrorA
+white
+....0
+...0.
+..0..
+.0...
+0....
+
+MirrorTR
+gray lightblue
+00000
+10000
+11000
+11100
+11110
+
+MirrorBR
+gray lightblue
+11110
+11100
+11000
+10000
+00000
+
+MirrorBL
+gray lightblue
+01111
+00111
+00011
+00001
+00000
+
+MirrorTL
+gray lightblue
+00000
+00001
+00011
+00111
+01111
+
 
 =======
 LEGEND
 =======
+
+Beam = BeamLR or BeamRL or BeamDU or BeamUD or BeamRD or BeamDR or BeamLD or BeamDL or BeamLU or BeamUL or BeamRU or BeamUR
+BeamR = BeamLR or LaserR or BeamUR or BeamDR
+BeamL = BeamRL or LaserL or BeamUL or BeamDL
+BeamD = BeamUD or LaserD or BeamRD or BeamLD
+BeamU = BeamDU or LaserU or BeamRU or BeamLU
+
+Mirror = MirrorTR or MirrorBR or MirrorBL or MirrorTL
+
+Object = Player or Wall or Crate or LaserR or LaserD or LaserL or LaserU or Mirror
 
 . = Background
 # = Wall
@@ -37,9 +266,29 @@ P = Player
 * = Crate
 @ = Crate and Target
 O = Target
-K = ArrowLeft
-S = ArrowSpawnLeft
+K = LaserLeft
+S = LaserSpawnLeft
+I = InvisibleArrow
+L = LaserLeft and LaserSpawnLeft
+J = LaserRight
+H = LaserSpawnRight
+R = LaserRight and LaserSpawnRight
+Y = LaserUp
+T = LaserSpawnUp
+U = LaserUp and LaserSpawnUp
+E = LaserDown
+Q = LaserSpawnDown
+D = LaserSpawnDown and LaserDown
+A = MirrorA
 
+1 = LaserR
+2 = LaserD
+3 = LaserL
+4 = LaserU
+5 = MirrorTR
+6 = MirrorBR
+7 = MirrorBL
+8 = MirrorTL
 =======
 SOUNDS
 =======
@@ -49,35 +298,86 @@ COLLISIONLAYERS
 ================
 
 Background 
-ArrowSpawnLeft
-Target, ArrowLeft
-Player, Wall, Crate
+LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown
+Target, LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown
+Player, Wall, Crate, MirrorA, LaserR, LaserD, LaserL, LaserU, Mirror
 
+BeamLR
+BeamRL
+BeamDU
+BeamUD
+BeamRD
+BeamDR
+BeamLD
+BeamDL
+BeamLU
+BeamUL
+BeamRU
+BeamUR
 ======
 RULES
 ======
 
 [ > Player | Crate ] -> [ > Player | > Crate ]
-[ stationary ArrowLeft ] -> [ left ArrowLeft ]
-late [Player ArrowLeft] -> restart
-late [crate ArrowLeft] -> [Crate]
-late [Wall ArrowLeft] -> [Wall]
-[ ArrowSpawnLeft no ArrowLeft ] -> [ ArrowSpawnLeft  ArrowLeft ]
+
+(Laser movement)
+[ stationary LaserLeft ] -> [ left LaserLeft ]
+[ stationary LaserRight ] -> [ right LaserRight ]
+[ stationary LaserUp ] -> [ up LaserUp ]
+[ stationary LaserDown ] -> [ Down LaserDown ]
+
+late [Player LaserLeft] -> restart
+late [crate LaserLeft] -> [Crate]
+late [Wall LaserLeft] -> [Wall]
+late [ LaserSpawnLeft no LaserLeft ] -> [ LaserSpawnLeft  LaserLeft ]
+late [ MirrorA  LaserLeft ] -> [ MirrorA  LaserDown]
+(late [ MirrorA  LaserRight ] -> [ MirrorA  LaserUp]
+late [ MirrorA  LaserDown ] -> [ MirrorA  LaserRight]
+late [ MirrorA  Laserup ] -> [ MirrorA  LaserLeft])
+
+
+
+late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
++late Right[ no Object | BeamL ] -> [ BeamRL | BeamL ]
++late Down [ BeamD | no Object ] -> [ BeamD | BeamUD ]
++late Down [ no Object | BeamU ] -> [ BeamDU | BeamU ]
+
++late Right[ BeamR | MirrorTR ] -> [ BeamR | MirrorTR BeamLD ]
++late Down [ MirrorTR | BeamU ] -> [ MirrorTR BeamDL | BeamU ]
++late Right[ BeamR | MirrorBR ] -> [ BeamR | MirrorBR BeamLU ]
++late Down [ BeamD | MirrorBR ] -> [ BeamD | MirrorBR BeamUL ]
++late Right[ MirrorBL | BeamL ] -> [ MirrorBL BeamRU | BeamL ]
++late Down [ BeamD | MirrorBL ] -> [ BeamD | MirrorBL BeamUR ]
++late Right[ MirrorTL | BeamL ] -> [ MirrorTL BeamRD | BeamL ]
++late Down [ MirrorTL | BeamU ] -> [ MirrorTL BeamDR | BeamU ]
+
 
 ==============
 WINCONDITIONS
 ==============
 
-all Target on Crate
+all Target on Player
 
 =======
 LEVELS
 =======
 
-#########
-#.......#
-#.....@.#
-#.p.*.o.#
-#......s#
-#.......#
-#########
+###########
+#p........#
+#...a.....s
+#.........#
+#.........#
+#a..a.....#
+#.........#
+#........o#
+###########
+
+#######
+#....##
+#p.*.##
+#.*..##
+#kkkkkl
+#kkkkl#
+#....##
+#...o##
+#######
