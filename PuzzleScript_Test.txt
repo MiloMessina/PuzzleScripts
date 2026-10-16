@@ -2,6 +2,8 @@ title My Game
 author My Name Here
 homepage www.puzzlescript.net
 
+run_rules_on_level_start
+
 ========
 OBJECTS
 ========
@@ -54,7 +56,57 @@ RED
 ..0..)
 
 
+
 (Prueba robo)
+
+DoorOffV
+white lightred black
+00100
+2.2.2
+2.2.2
+2.2.2
+00100
+
+DoorOffH
+white lightred black
+02220
+0...0
+12221
+0...0
+02220
+
+DoorOnV
+white red black
+00100
+.....
+.....
+.....
+00100
+
+DoorOnH
+white red black
+0...0
+0...0
+1...1
+0...0
+0...0
+
+BoltedOff
+white lightred
+00100
+01110
+11011
+01110
+00100
+
+BoltedOn
+white red
+00100
+01110
+11011
+01110
+00100
+
 
 BeamLR
 red
@@ -250,6 +302,8 @@ gray lightblue
 LEGEND
 =======
 
+Breaker = BoltedOff or BoltedOn
+
 Beam = BeamLR or BeamRL or BeamDU or BeamUD or BeamRD or BeamDR or BeamLD or BeamDL or BeamLU or BeamUL or BeamRU or BeamUR
 BeamR = BeamLR or LaserR or BeamUR or BeamDR
 BeamL = BeamRL or LaserL or BeamUL or BeamDL
@@ -258,7 +312,10 @@ BeamU = BeamDU or LaserU or BeamRU or BeamLU
 
 Mirror = MirrorTR or MirrorBR or MirrorBL or MirrorTL
 
-Object = Wall or Crate or LaserR or LaserD or LaserL or LaserU or Mirror
+Object = Wall or Crate or LaserR or LaserD or LaserL or LaserU or Mirror OR  DoorOffV or DoorOffH
+
+DoorOn = DoorOnH or DoorOnV
+
 
 . = Background
 # = Wall
@@ -289,6 +346,10 @@ A = MirrorA)
 6 = MirrorBR
 7 = MirrorBL
 8 = MirrorTL
+0 = BoltedOff
+% = DoorOffV
+\ = DoorOffH
+
 =======
 SOUNDS
 =======
@@ -300,7 +361,8 @@ COLLISIONLAYERS
 Background 
 (LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown)
 Target, (LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown)
-Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror
+DoorOn
+Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror, breaker, DoorOffV, DoorOffH
 
 BeamLR
 BeamRL
@@ -314,6 +376,7 @@ BeamLU
 BeamUL
 BeamRU
 BeamUR
+
 ======
 RULES
 ======
@@ -336,6 +399,7 @@ late [ MirrorA  LaserDown ] -> [ MirrorA  LaserRight]
 late [ MirrorA  Laserup ] -> [ MirrorA  LaserLeft])
 
 late[ Beam ] -> [ ]
+late[ BoltedOn] -> [ BoltedOff ]
 
 late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
 +late Right[ no Object | BeamL ] -> [ BeamRL | BeamL ]
@@ -351,6 +415,15 @@ late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
 +late Right[ MirrorTL | BeamL ] -> [ MirrorTL BeamRD | BeamL ]
 +late Down [ MirrorTL | BeamU ] -> [ MirrorTL BeamDR | BeamU ]
 
++late Right[ BeamR | BoltedOff ] -> [ BeamR | BoltedOn ]
++late Right[ BoltedOff | BeamL ] -> [ BoltedOn | BeamL ]
++late Down [ BeamD | BoltedOff ] -> [ BeamD | BoltedOn ]
++late Down [ BoltedOff | BeamU ] -> [ BoltedOn | BeamU ]
+
++late Vertical [ BoltedOn | DoorOffV ] -> [ BoltedOn | DoorOnV ]
++late Horizontal[BoltedOn | DoorOffH ] -> [ BoltedOn | DoorOnH ]
+
+
 late [crate beam] -> [Crate]
 late [Player beam] -> restart
 
@@ -364,6 +437,18 @@ all Target on Player
 =======
 LEVELS
 =======
+
+.p.......
+.........
+.1......0
+........%
+....0\..o
+
+#####2###
+#p......#
+#..*....o
+#.......#
+#########
 
 ##############
 #............#
