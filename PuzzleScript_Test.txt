@@ -21,7 +21,7 @@ blue
 Crate
 orange
 
-LaserLeft
+(LaserLeft
 RED
 .....
 .....
@@ -51,7 +51,7 @@ RED
 ..0..
 ..0..
 ..0..
-..0..
+..0..)
 
 
 (Prueba robo)
@@ -185,7 +185,7 @@ gray red
 00000
 00000
 
-LaserSpawnLeft
+(LaserSpawnLeft
 Red
 
 LaserSpawnRight
@@ -211,7 +211,7 @@ white
 ...0.
 ..0..
 .0...
-0....
+0....)
 
 MirrorTR
 gray lightblue
@@ -266,7 +266,7 @@ P = Player
 * = Crate
 @ = Crate and Target
 O = Target
-K = LaserLeft
+(K = LaserLeft
 S = LaserSpawnLeft
 I = InvisibleArrow
 L = LaserLeft and LaserSpawnLeft
@@ -279,7 +279,7 @@ U = LaserUp and LaserSpawnUp
 E = LaserDown
 Q = LaserSpawnDown
 D = LaserSpawnDown and LaserDown
-A = MirrorA
+A = MirrorA)
 
 1 = LaserR
 2 = LaserD
@@ -298,9 +298,9 @@ COLLISIONLAYERS
 ================
 
 Background 
-LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown
-Target, LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown
-Player, Wall, Crate, MirrorA, LaserR, LaserD, LaserL, LaserU, Mirror
+(LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown)
+Target, (LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown)
+Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror
 
 BeamLR
 BeamRL
@@ -365,32 +365,14 @@ all Target on Player
 LEVELS
 =======
 
+##############
+#............#
+#.p..........#
 #............#
 #............#
+#1..5........#
 #............#
-1........5.5.#
-#........7...#
 #............#
-#....p.......#
-#............#
-###########o##
-
-###########
-#p........#
-#...a.....s
-#.........#
-#.........#
-#a..a.....#
-#.........#
-#........o#
-###########
-
-#######
-#....##
-#p.*.##
-#.*..##
-#kkkkkl
-#kkkkl#
-#....##
-#...o##
-#######
+#.....*......#
+#...7.....o..#
+##############
