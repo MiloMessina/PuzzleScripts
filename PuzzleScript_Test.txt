@@ -729,11 +729,11 @@ late[ Beam3 ] -> [ ]
 late[ BoltedOn] -> [ BoltedOff ]
 late[ BoltedOn2] -> [ BoltedOff2 ]
 
-late [DoorOnV] -> [DoorOffV]
+(late [DoorOnV] -> [DoorOffV]
 late [DoorOnH] -> [DoorOffH]
 
 late [DoorOnV2] -> [DoorOffV2]
-late [DoorOnH2] -> [DoorOffH2]
+late [DoorOnH2] -> [DoorOffH2])
 
 
 late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
