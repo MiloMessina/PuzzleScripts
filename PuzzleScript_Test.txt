@@ -23,6 +23,14 @@ blue
 Crate
 orange
 
+GlassCrate
+white lightblue
+.1..1
+..1..
+1..1.
+.1..1
+..1..
+
 (LaserLeft
 RED
 .....
@@ -107,6 +115,57 @@ white red
 01110
 00100
 
+(Botones y puertas azules)
+
+DoorOffV2
+white lightblue black
+00100
+2.2.2
+2.2.2
+2.2.2
+00100
+
+DoorOffH2
+white Lightblue black
+02220
+0...0
+12221
+0...0
+02220
+
+DoorOnV2
+white Blue black
+00100
+.....
+.....
+.....
+00100
+
+DoorOnH2
+white Blue black
+0...0
+0...0
+1...1
+0...0
+0...0
+
+BoltedOff2
+white lightblue
+00100
+01110
+11011
+01110
+00100
+
+BoltedOn2
+white Blue
+00100
+01110
+11011
+01110
+00100
+
+(laser1)
 
 BeamLR
 red
@@ -237,6 +296,238 @@ gray red
 00000
 00000
 
+(LASER NUEVO PRUEBA)
+
+BeamLR2
+blue
+.....
+.....
+00000
+.....
+.....
+
+BeamRL2
+blue
+.....
+.....
+00000
+.....
+.....
+
+BeamDU2
+blue
+..0..
+..0..
+..0..
+..0..
+..0..
+
+BeamUD2
+blue
+..0..
+..0..
+..0..
+..0..
+..0..
+
+
+BeamLD2
+blue
+.....
+.....
+000..
+..0..
+..0..
+
+BeamDL2
+blue
+.....
+.....
+000..
+..0..
+..0..
+
+BeamLU2
+blue
+..0..
+..0..
+000..
+.....
+.....
+
+BeamUL2
+blue
+..0..
+..0..
+000..
+.....
+.....
+
+BeamRU2
+blue
+..0..
+..0..
+..000
+.....
+.....
+
+BeamUR2
+blue
+..0..
+..0..
+..000
+.....
+.....
+
+BeamRD2
+blue
+.....
+.....
+..000
+..0..
+..0..
+
+BeamDR2
+blue
+.....
+.....
+..000
+..0..
+..0..
+
+LaserR2
+gray blue
+000..
+0000.
+00111
+0000.
+000..
+
+LaserD2
+gray blue
+00000
+00000
+00100
+.010.
+..1..
+
+LaserL2
+gray blue
+..000
+.0000
+11100
+.0000
+..000
+
+LaserU2
+gray blue
+..1..
+.010.
+00100
+00000
+00000
+
+(Laser3 purbea)
+
+BeamLR3
+purple
+.....
+.....
+00000
+.....
+.....
+
+BeamRL3
+purple
+.....
+.....
+00000
+.....
+.....
+
+BeamDU3
+purple
+..0..
+..0..
+..0..
+..0..
+..0..
+
+BeamUD3
+purple
+..0..
+..0..
+..0..
+..0..
+..0..
+
+
+BeamLD3
+purple
+.....
+.....
+000..
+..0..
+..0..
+
+BeamDL3
+purple
+.....
+.....
+000..
+..0..
+..0..
+
+BeamLU3
+purple
+..0..
+..0..
+000..
+.....
+.....
+
+BeamUL3
+purple
+..0..
+..0..
+000..
+.....
+.....
+
+BeamRU3
+purple
+..0..
+..0..
+..000
+.....
+.....
+
+BeamUR3
+purple
+..0..
+..0..
+..000
+.....
+.....
+
+BeamRD3
+purple
+.....
+.....
+..000
+..0..
+..0..
+
+BeamDR3
+purple
+.....
+.....
+..000
+..0..
+..0..
+
+
+
 (LaserSpawnLeft
 Red
 
@@ -302,20 +593,42 @@ gray lightblue
 LEGEND
 =======
 
-Breaker = BoltedOff or BoltedOn
+Breaker = BoltedOff or BoltedOn or BoltedOff2 or BoltedOn2
 
 Beam = BeamLR or BeamRL or BeamDU or BeamUD or BeamRD or BeamDR or BeamLD or BeamDL or BeamLU or BeamUL or BeamRU or BeamUR
 BeamR = BeamLR or LaserR or BeamUR or BeamDR
 BeamL = BeamRL or LaserL or BeamUL or BeamDL
 BeamD = BeamUD or LaserD or BeamRD or BeamLD
 BeamU = BeamDU or LaserU or BeamRU or BeamLU
+Laser = LaserR or LaserD or LaserL or LaserU
+
+Beam2 = BeamLR2 or BeamRL2 or BeamDU2 or BeamUD2 or BeamRD2 or BeamDR2 or BeamLD2 or BeamDL2 or BeamLU2 or BeamUL2 or BeamRU2 or BeamUR2
+BeamR2 = BeamLR2 or LaserR2 or BeamUR2 or BeamDR2
+BeamL2 = BeamRL2 or LaserL2 or BeamUL2 or BeamDL2
+BeamD2 = BeamUD2 or LaserD2 or BeamRD2 or BeamLD2
+BeamU2 = BeamDU2 or LaserU2 or BeamRU2 or BeamLU2
+Laser2 = LaserR2 or LaserD2 or LaserL2 or LaserU2
+
+
+Beam3 = BeamLR3 or BeamRL3 or BeamDU3 or BeamUD3 or BeamRD3 or BeamDR3 or BeamLD3 or BeamDL3 or BeamLU3 or BeamUL3 or BeamRU3 or BeamUR3
+BeamR3 = BeamLR3 or BeamUR3 or BeamDR3
+BeamL3 = BeamRL3 or BeamUL3 or BeamDL3
+BeamD3 = BeamUD3 or BeamRD3 or BeamLD3
+BeamU3 = BeamDU3 or BeamRU3 or BeamLU3
+
+
 
 Mirror = MirrorTR or MirrorBR or MirrorBL or MirrorTL
 
-Object = Wall or Crate or LaserR or LaserD or LaserL or LaserU or Mirror OR  DoorOffV or DoorOffH
+Object = Wall or Crate or Laser or Mirror OR  DoorOffV or DoorOffH or Laser2 or DoorOffV2 or DoorOffH2
 
 DoorOn = DoorOnH or DoorOnV
+DoorOn2 = DoorOnH2 or DoorOnV2
+DoorOff = DoorOffV or DoorOffH
+DoorOff2 = DoorOffV2 or DoorOffH2
 
+
+Pushable = Crate or Mirror or Laser or GlassCrate or laser2
 
 . = Background
 # = Wall
@@ -349,6 +662,15 @@ A = MirrorA)
 0 = BoltedOff
 % = DoorOffV
 \ = DoorOffH
+: = GlassCrate
+a = BoltedOff2
+s = DoorOffV2
+d = DoorOffH2
+
+t = LaserR2
+y = LaserD2
+u = LaserL2
+i = LaserU2
 
 =======
 SOUNDS
@@ -361,27 +683,29 @@ COLLISIONLAYERS
 Background 
 (LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown)
 Target, (LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown)
-DoorOn
-Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror, breaker, DoorOffV, DoorOffH
+DoorOn, DoorOn2
+Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror, breaker, DoorOffV, DoorOffH, GlassCrate, Laser2, DoorOffV2, DoorOffH2
 
-BeamLR
-BeamRL
-BeamDU
-BeamUD
-BeamRD
-BeamDR
-BeamLD
-BeamDL
-BeamLU
-BeamUL
-BeamRU
-BeamUR
+BeamLR BeamLR2 BeamLR3
+BeamRL BeamRL2 BeamRL3
+BeamDU BeamDU2 BeamDU3
+BeamUD BeamUD2 BeamUD3
+BeamRD BeamRD2 BeamRD3
+BeamDR BeamDR2 BeamDR3
+BeamLD BeamLD2 BeamLD3
+BeamDL BeamDL2 BeamDL3
+BeamLU BeamLU2 BeamLU3
+BeamUL BeamUL2 BeamUL3
+BeamRU BeamRU2 BeamRU3
+BeamUR BeamUR2 BeamUR3
 
 ======
 RULES
 ======
 
-[ > Player | object ] -> [ > Player | > object ]
+[ > Player | Pushable ] -> [ > Player | > Pushable ]
+
+[ > Pushable | Pushable ] -> [ > Pushable | > Pushable ]
 
 (Laser movement old)
 ([ stationary LaserLeft ] -> [ left LaserLeft ]
@@ -399,7 +723,18 @@ late [ MirrorA  LaserDown ] -> [ MirrorA  LaserRight]
 late [ MirrorA  Laserup ] -> [ MirrorA  LaserLeft])
 
 late[ Beam ] -> [ ]
+late[ Beam2 ] -> [ ]
+late[ Beam3 ] -> [ ]
+
 late[ BoltedOn] -> [ BoltedOff ]
+late[ BoltedOn2] -> [ BoltedOff2 ]
+
+late [DoorOnV] -> [DoorOffV]
+late [DoorOnH] -> [DoorOffH]
+
+late [DoorOnV2] -> [DoorOffV2]
+late [DoorOnH2] -> [DoorOffH2]
+
 
 late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
 +late Right[ no Object | BeamL ] -> [ BeamRL | BeamL ]
@@ -420,12 +755,60 @@ late Right [ BeamR | no Object ] -> [ BeamR | BeamLR ]
 +late Down [ BeamD | BoltedOff ] -> [ BeamD | BoltedOn ]
 +late Down [ BoltedOff | BeamU ] -> [ BoltedOn | BeamU ]
 
+(laser2)
+
+late Right [ BeamR2 | no Object ] -> [ BeamR2 | BeamLR2 ]
++late Right[ no Object | BeamL2 ] -> [ BeamRL2 | BeamL2 ]
++late Down [ BeamD2 | no Object ] -> [ BeamD2 | BeamUD2 ]
++late Down [ no Object | BeamU2 ] -> [ BeamDU2 | BeamU2 ]
+
++late Right[ BeamR2 | MirrorTR ] -> [ BeamR2 | MirrorTR BeamLD2 ]
++late Down [ MirrorTR | BeamU2 ] -> [ MirrorTR BeamDL2 | BeamU2 ]
++late Right[ BeamR2 | MirrorBR ] -> [ BeamR2 | MirrorBR BeamLU2 ]
++late Down [ BeamD2 | MirrorBR ] -> [ BeamD2 | MirrorBR BeamUL2 ]
++late Right[ MirrorBL | BeamL2 ] -> [ MirrorBL BeamRU2 | BeamL2 ]
++late Down [ BeamD2 | MirrorBL ] -> [ BeamD2 | MirrorBL BeamUR2 ]
++late Right[ MirrorTL | BeamL2 ] -> [ MirrorTL BeamRD2 | BeamL2 ]
++late Down [ MirrorTL | BeamU2 ] -> [ MirrorTL BeamDR2 | BeamU2 ]
+
++late Right[ BeamR2 | BoltedOff2 ] -> [ BeamR2 | BoltedOn2 ]
++late Right[ BoltedOff2 | BeamL2 ] -> [ BoltedOn2 | BeamL2 ]
++late Down [ BeamD2 | BoltedOff2 ] -> [ BeamD2 | BoltedOn2 ]
++late Down [ BoltedOff2 | BeamU2 ] -> [ BoltedOn2 | BeamU2 ]
+
+(laser3)
+
+late Right [ BeamR3 | no Object ] -> [ BeamR3 | BeamLR3 ]
++late Right[ no Object | BeamL3 ] -> [ BeamRL3 | BeamL3 ]
++late Down [ BeamD3 | no Object ] -> [ BeamD3 | BeamUD3 ]
++late Down [ no Object | BeamU3 ] -> [ BeamDU3 | BeamU3 ]
+
++late Right[ BeamR3 | MirrorTR ] -> [ BeamR3 | MirrorTR BeamLD3 ]
++late Down [ MirrorTR | BeamU3 ] -> [ MirrorTR BeamDL3 | BeamU3 ]
++late Right[ BeamR3 | MirrorBR ] -> [ BeamR3 | MirrorBR BeamLU3 ]
++late Down [ BeamD3 | MirrorBR ] -> [ BeamD3 | MirrorBR BeamUL3 ]
++late Right[ MirrorBL | BeamL3 ] -> [ MirrorBL BeamRU3 | BeamL3 ]
++late Down [ BeamD3 | MirrorBL ] -> [ BeamD3 | MirrorBL BeamUR3 ]
++late Right[ MirrorTL | BeamL3 ] -> [ MirrorTL BeamRD3 | BeamL3 ]
++late Down [ MirrorTL | BeamU3 ] -> [ MirrorTL BeamDR3 | BeamU3 ]
+
++late Right[ BeamR3 | BoltedOff ] -> [ BeamR3 | BoltedOn ]
++late Right[ BoltedOff | BeamL3 ] -> [ BoltedOn | BeamL3 ]
++late Down [ BeamD3 | BoltedOff ] -> [ BeamD3 | BoltedOn ]
++late Down [ BoltedOff | BeamU3 ] -> [ BoltedOn | BeamU3 ]
+
 +late Vertical [ BoltedOn | DoorOffV ] -> [ BoltedOn | DoorOnV ]
 +late Horizontal[BoltedOn | DoorOffH ] -> [ BoltedOn | DoorOnH ]
 
++late Vertical [ BoltedOn2 | DoorOffV2 ] -> [ BoltedOn2 | DoorOnV2 ]
++late Horizontal[BoltedOn2 | DoorOffH2 ] -> [ BoltedOn2 | DoorOnH2 ]
+
+late [Beam2 Beam] -> [GlassCrate]
 
 late [crate beam] -> [Crate]
+late [crate Beam2] -> [Crate]
 late [Player beam] -> restart
+late [Player beam2] -> restart
 
 
 ==============
@@ -438,17 +821,15 @@ all Target on Player
 LEVELS
 =======
 
-.p.......
-.........
-.1......0
-........%
-....0\..o
 
-#####2###
-#p......#
-#..*....o
-#.......#
-#########
+#####2#####
+#p........#
+#..*......#
+#.........o
+#.........#
+#.........#
+#........##
+###########
 
 ##############
 #............#
