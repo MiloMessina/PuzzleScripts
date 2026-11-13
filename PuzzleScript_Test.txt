@@ -31,6 +31,39 @@ white lightblue
 .1..1
 ..1..
 
+GlassCrateBlue
+white blue
+.1..1
+..1..
+1..1.
+.1..1
+..1..
+
+GlassCrateRed
+white red
+.1..1
+..1..
+1..1.
+.1..1
+..1..
+
+TargetBlue
+Darkblue Blue
+11111
+10001
+10001
+10001
+11111
+
+TargetRed
+Darkblue Red
+11111
+10001
+10001
+10001
+11111
+
+
 (LaserLeft
 RED
 .....
@@ -628,7 +661,7 @@ DoorOff = DoorOffV or DoorOffH
 DoorOff2 = DoorOffV2 or DoorOffH2
 
 
-Pushable = Crate or Mirror or Laser or GlassCrate or laser2
+Pushable = Crate or Mirror or Laser or GlassCrate or laser2 or GlassCrateBlue or GlassCrateRed
 
 . = Background
 # = Wall
@@ -666,11 +699,16 @@ A = MirrorA)
 a = BoltedOff2
 s = DoorOffV2
 d = DoorOffH2
+k = GlassCrateBlue
+l = GlassCrateRed
 
 t = LaserR2
 y = LaserD2
 u = LaserL2
 i = LaserU2
+
+H = TargetBlue
+G = TargetRed
 
 =======
 SOUNDS
@@ -682,9 +720,9 @@ COLLISIONLAYERS
 
 Background 
 (LaserSpawnLeft, LaserSpawnRight, LaserSpawnUp, LaserSpawnDown)
-Target, (LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown)
+Target, (LaserLeft, InvisibleArrow, LaserRight, LaserUp, LaserDown), TargetBlue, TargetRed
 DoorOn, DoorOn2
-Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror, breaker, DoorOffV, DoorOffH, GlassCrate, Laser2, DoorOffV2, DoorOffH2
+Player, Wall, Crate, (MirrorA) LaserR, LaserD, LaserL, LaserU, Mirror, breaker, DoorOffV, DoorOffH, GlassCrate, Laser2, DoorOffV2, DoorOffH2, GlassCrateBlue, GlassCrateRed
 
 BeamLR BeamLR2 BeamLR3
 BeamRL BeamRL2 BeamRL3
@@ -810,35 +848,42 @@ late [crate Beam2] -> [Crate]
 late [Player beam] -> restart
 late [Player beam2] -> restart
 
+late [Beam2 GlassCrate] -> [GlassCrateBlue]
+late [Beam GlassCrate] -> [GlassCrateRed]
 
 ==============
 WINCONDITIONS
 ==============
 
 all Target on Player
+all TargetBlue on GlassCrateblue
+all TargetRed on GlassCrateRed
 
 =======
 LEVELS
 =======
+...........
+..........#
+..........#
+..........#
+..........#
+..........#
+..........g
+..........o
+..........#
+..........#
+..........#
+..#########
 
 
-#####2#####
-#p........#
-#..*......#
-#.........o
-#.........#
-#.........#
-#........##
-###########
-
-##############
-#............#
-#.p..........#
-#............#
-#............#
-#1..5........#
-#............#
-#............#
-#.....*......#
-#...7.....o..#
-##############
+#########
+#.......#
+#.p*....#
+#..5.#..#
+#t...#..#
+#....#..g
+#1...#..o
+#....#..#
+#.......#
+#.......#
+#########
